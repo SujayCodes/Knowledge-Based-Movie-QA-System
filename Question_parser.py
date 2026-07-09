@@ -25,7 +25,7 @@ warnings.filterwarnings(
 print("Loading NLP model...")
 
 nlp = spacy.load(
-    "en_core_web_trf"
+    "en_core_web_sm"   #"en_core_web_trf"
 )
 
 print("NLP model loaded successfully.")
