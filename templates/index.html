@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Ask CineGraph | Movie QA System
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body class="qa-page">
+
+
+    <!-- ================================================== -->
+    <!-- NAVIGATION -->
+    <!-- ================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                CG
+            </span>
+
+            <span>
+                CineGraph
+            </span>
+
+            <span class="logo-ai">
+                AI
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a
+                href="{{ url_for('ask') }}"
+                class="active"
+            >
+                Ask AI
+            </a>
+
+            <a
+                href="{{ url_for('home') }}#technology"
+            >
+                Technology
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================================================== -->
+    <!-- QA CONTENT -->
+    <!-- ================================================== -->
+
+    <main class="qa-main">
+
+
+        <div class="qa-glow"></div>
+
+
+        <section class="qa-container">
+
+
+            <div class="qa-heading">
+
+                <div class="eyebrow">
+
+                    <span class="pulse-dot"></span>
+
+                    KNOWLEDGE GRAPH ONLINE
+
+                </div>
+
+
+                <h1>
+
+                    Ask the
+
+                    <span>
+                        Movie Graph
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Ask a natural-language question and explore
+                    connections across thousands of movies.
+
+                </p>
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- QUESTION FORM -->
+            <!-- ================================================== -->
+
+            <div class="question-panel">
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for('ask') }}"
+                    class="question-form"
+                >
+
+
+                    <label for="question">
+
+                        What would you like to know?
+
+                    </label>
+
+
+                    <div class="input-row">
+
+
+                        <input
+                            type="text"
+                            id="question"
+                            name="question"
+                            placeholder="Example: Who directed Avatar?"
+                            value="{{ question or '' }}"
+                            autocomplete="off"
+                            required
+                        >
+
+
+                        <button
+                            type="submit"
+                            class="ask-button"
+                        >
+
+                            Ask CineGraph
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+
+                </form>
+
+
+                <!-- ============================================== -->
+                <!-- SUGGESTED QUESTIONS -->
+                <!-- ============================================== -->
+
+                <div class="suggestion-area">
+
+                    <span class="suggestion-title">
+                        TRY ASKING
+                    </span>
+
+
+                    <div class="suggestion-grid">
+
+
+                        <div class="suggestion-card">
+
+                            <span>
+                                DIRECTOR
+                            </span>
+
+                            Who directed Avatar?
+
+                        </div>
+
+
+                        <div class="suggestion-card">
+
+                            <span>
+                                ACTOR
+                            </span>
+
+                            Which movies did Sam Worthington act in?
+
+                        </div>
+
+
+                        <div class="suggestion-card">
+
+                            <span>
+                                ANALYTICS
+                            </span>
+
+                            Who are the top 5 most successful actors?
+
+                        </div>
+
+
+                        <div class="suggestion-card">
+
+                            <span>
+                                MOVIE DETAILS
+                            </span>
+
+                            Tell me everything about Avatar
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- ANSWER -->
+            <!-- ================================================== -->
+
+            {% if response %}
+
+
+            <section class="answer-panel">
+
+
+                <div class="answer-top">
+
+
+                    <div>
+
+                        <span class="answer-label">
+                            CINEGRAPH RESPONSE
+                        </span>
+
+                        <h2>
+                            Answer
+                        </h2>
+
+                    </div>
+
+
+                    <span class="answer-status">
+                        GRAPH VERIFIED
+                    </span>
+
+
+                </div>
+
+
+                <div class="question-recap">
+
+                    <span>
+                        YOUR QUESTION
+                    </span>
+
+                    {{ question }}
+
+                </div>
+
+
+                <div class="answer-content">
+
+                    {{ response }}
+
+                </div>
+
+
+                {% if intent %}
+
+
+                <div class="query-metadata">
+
+
+                    <div>
+
+                        <span>
+                            DETECTED INTENT
+                        </span>
+
+                        <strong>
+                            {{ intent }}
+                        </strong>
+
+                    </div>
+
+
+                    {% if entities %}
+
+
+                    <div>
+
+                        <span>
+                            EXTRACTED ENTITIES
+                        </span>
+
+                        <strong>
+                            {{ entities }}
+                        </strong>
+
+                    </div>
+
+
+                    {% endif %}
+
+
+                </div>
+
+
+                {% endif %}
+
+
+            </section>
+
+
+            {% else %}
+
+
+            <!-- ================================================== -->
+            <!-- EMPTY STATE -->
+            <!-- ================================================== -->
+
+            <section class="empty-state">
+
+
+                <div class="empty-graph">
+
+                    <span class="empty-node node-a"></span>
+
+                    <span class="empty-node node-b"></span>
+
+                    <span class="empty-node node-c"></span>
+
+                    <span class="empty-node node-d"></span>
+
+                    <span class="empty-line empty-line-a"></span>
+
+                    <span class="empty-line empty-line-b"></span>
+
+                    <span class="empty-line empty-line-c"></span>
+
+                </div>
+
+
+                <h3>
+                    Your graph answer will appear here
+                </h3>
+
+
+                <p>
+
+                    Enter a question above to search the movie
+                    knowledge graph.
+
+                </p>
+
+
+            </section>
+
+
+            {% endif %}
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================================================== -->
+    <!-- FOOTER -->
+    <!-- ================================================== -->
+
+    <footer>
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                CG
+            </span>
+
+            CineGraph AI
+
+        </a>
+
+        <p>
+
+            4,803 Movies · 131K+ Nodes · 354K+ Relationships
+
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

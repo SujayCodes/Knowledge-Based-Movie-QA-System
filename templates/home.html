@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="CineGraph AI - Knowledge Graph Based Movie Question Answering System"
+    >
+
+    <title>CineGraph AI | Movie Intelligence</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+
+<body class="home-page">
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+            <span class="logo-mark">
+                CG
+            </span>
+
+            <span>
+                CineGraph
+            </span>
+
+            <span class="logo-ai">
+                AI
+            </span>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a
+                href="{{ url_for('home') }}"
+                class="active"
+            >
+                Home
+            </a>
+
+            <a href="#technology">
+                Technology
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a
+                href="{{ url_for('ask') }}"
+                class="nav-button"
+            >
+                Launch System
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section class="hero-section">
+
+
+            <!-- DECORATIVE BACKGROUND GLOWS -->
+
+            <div class="hero-glow hero-glow-one"></div>
+
+            <div class="hero-glow hero-glow-two"></div>
+
+
+
+            <!-- =============================================
+                 LEFT SIDE HERO CONTENT
+            ============================================== -->
+
+            <div class="hero-content">
+
+
+                <div class="eyebrow">
+
+                    <span class="pulse-dot"></span>
+
+                    NLP + KNOWLEDGE GRAPH INTELLIGENCE
+
+                </div>
+
+
+                <h1>
+
+                    Ask Movies.
+
+                    <span>
+                        Explore Connections.
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    An intelligent movie question-answering system
+                    powered by Natural Language Processing, MongoDB,
+                    Stanford CoreNLP and Neo4j knowledge graphs.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="{{ url_for('ask') }}"
+                        class="primary-button"
+                    >
+                        Start Asking Questions
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+
+                    <a
+                        href="#technology"
+                        class="secondary-button"
+                    >
+                        Explore Technology
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROJECT STATISTICS -->
+
+                <div class="hero-stats">
+
+
+                    <div class="stat">
+
+                        <strong>
+                            4,803
+                        </strong>
+
+                        <span>
+                            Movies
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-divider"></div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            131K+
+                        </strong>
+
+                        <span>
+                            Graph Nodes
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-divider"></div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            354K+
+                        </strong>
+
+                        <span>
+                            Relationships
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 RIGHT SIDE KNOWLEDGE GRAPH
+            ============================================== -->
+
+            <div class="hero-visual">
+
+
+                <div class="archive-graph-card">
+
+
+                    <!-- GRAPH HEADER -->
+
+                    <div class="archive-graph-header">
+
+
+                        <div class="graph-title-group">
+
+                            <span class="graph-mini-dot"></span>
+
+                            <span>
+                                KNOWLEDGE GRAPH
+                            </span>
+
+                        </div>
+
+
+                        <span class="live-status">
+
+                            <span class="live-dot"></span>
+
+                            LIVE
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- GRAPH VISUALIZATION AREA -->
+
+                    <div class="archive-graph-space">
+
+
+                        <!-- BACKGROUND GLOW -->
+
+                        <div class="graph-inner-glow"></div>
+
+
+
+                        <!-- =================================
+                             CONNECTION LINES
+                        ================================== -->
+
+                        <span
+                            class="graph-link link-director"
+                        ></span>
+
+                        <span
+                            class="graph-link link-genre"
+                        ></span>
+
+                        <span
+                            class="graph-link link-actor"
+                        ></span>
+
+                        <span
+                            class="graph-link link-company"
+                        ></span>
+
+                        <span
+                            class="graph-link link-country"
+                        ></span>
+
+
+
+                        <!-- =================================
+                             DIRECTOR NODE
+                        ================================== -->
+
+                        <article
+                            class="archive-node director-card"
+                        >
+
+                            <span class="node-label">
+                                DIRECTOR
+                            </span>
+
+
+                            <h3>
+                                James Cameron
+                            </h3>
+
+
+                            <p>
+                                filed under: auteur
+                            </p>
+
+
+                            <div class="node-divider"></div>
+
+
+                            <small>
+                                9 features · 2 top-5 grossing
+                            </small>
+
+                        </article>
+
+
+
+                        <!-- =================================
+                             GENRE NODE
+                        ================================== -->
+
+                        <article
+                            class="archive-node genre-card"
+                        >
+
+                            <span class="node-label">
+                                GENRE
+                            </span>
+
+
+                            <h3>
+                                Action
+                            </h3>
+
+
+                            <div class="node-divider"></div>
+
+
+                            <small>
+                                cross-ref: 1,154 titles
+                            </small>
+
+                        </article>
+
+
+
+                        <!-- =================================
+                             CENTRAL MOVIE NODE
+                        ================================== -->
+
+                        <article
+                            class="archive-node movie-card"
+                        >
+
+                            <span class="node-label">
+                                MOVIE
+                            </span>
+
+
+                            <h3>
+                                Avatar
+                            </h3>
+
+
+                            <p>
+                                2009 · USA
+                            </p>
+
+
+                            <p>
+                                Lightstorm Entertainment
+                            </p>
+
+
+                            <div class="node-divider"></div>
+
+
+                            <small>
+                                linked to 6 node types
+                            </small>
+
+                        </article>
+
+
+
+                        <!-- =================================
+                             COMPANY NODE
+                        ================================== -->
+
+                        <article
+                            class="archive-node company-card"
+                        >
+
+                            <span class="node-label">
+                                COMPANY
+                            </span>
+
+
+                            <h3>
+                                Lightstorm
+                            </h3>
+
+
+                            <div class="node-divider"></div>
+
+
+                            <small>
+                                established 1990
+                            </small>
+
+                        </article>
+
+
+
+                        <!-- =================================
+                             ACTOR NODE
+                        ================================== -->
+
+                        <article
+                            class="archive-node actor-card"
+                        >
+
+                            <span class="node-label">
+                                ACTOR
+                            </span>
+
+
+                            <h3>
+                                Sam Worthington
+                            </h3>
+
+
+                            <div class="node-divider"></div>
+
+
+                            <small>
+                                appears in 14 titles
+                            </small>
+
+                        </article>
+
+
+
+                        <!-- =================================
+                             COUNTRY NODE
+                        ================================== -->
+
+                        <article
+                            class="archive-node country-card"
+                        >
+
+                            <span class="node-label">
+                                COUNTRY
+                            </span>
+
+
+                            <h3>
+                                USA
+                            </h3>
+
+
+                            <div class="node-divider"></div>
+
+
+                            <small>
+                                2,046 productions filed
+                            </small>
+
+                        </article>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             TECHNOLOGY SECTION
+        ================================================== -->
+
+        <section
+            class="section"
+            id="technology"
+        >
+
+
+            <div class="section-heading">
+
+
+                <span class="section-label">
+                    UNDER THE HOOD
+                </span>
+
+
+                <h2>
+                    Built with an intelligent data pipeline
+                </h2>
+
+
+                <p>
+
+                    From natural-language questions to graph-powered
+                    answers, every layer of CineGraph AI works
+                    together to transform raw movie data into
+                    meaningful knowledge.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- TECHNOLOGY CARDS -->
+
+            <div class="feature-grid">
+
+
+
+                <!-- CARD 1 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        01
+                    </div>
+
+
+                    <h3>
+                        Natural Language Processing
+                    </h3>
+
+
+                    <p>
+
+                        User questions are analysed using a
+                        transformer-based spaCy model and custom
+                        intent-recognition patterns.
+
+                    </p>
+
+
+                    <span class="tech-tag">
+                        spaCy
+                    </span>
+
+
+                </article>
+
+
+
+                <!-- CARD 2 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        02
+                    </div>
+
+
+                    <h3>
+                        Knowledge Extraction
+                    </h3>
+
+
+                    <p>
+
+                        Stanford CoreNLP OpenIE extracts semantic
+                        subject-predicate-object relationships from
+                        thousands of movie descriptions.
+
+                    </p>
+
+
+                    <span class="tech-tag">
+                        CoreNLP
+                    </span>
+
+
+                </article>
+
+
+
+                <!-- CARD 3 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        03
+                    </div>
+
+
+                    <h3>
+                        Graph Intelligence
+                    </h3>
+
+
+                    <p>
+
+                        Neo4j connects movies, actors, directors,
+                        genres, companies, countries, languages and
+                        extracted NLP entities.
+
+                    </p>
+
+
+                    <span class="tech-tag">
+                        Neo4j
+                    </span>
+
+
+                </article>
+
+
+
+                <!-- CARD 4 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        04
+                    </div>
+
+
+                    <h3>
+                        Dynamic Question Answering
+                    </h3>
+
+
+                    <p>
+
+                        Parsed questions are converted into Cypher
+                        queries and answered directly from the
+                        knowledge graph.
+
+                    </p>
+
+
+                    <span class="tech-tag">
+                        Flask
+                    </span>
+
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ABOUT SECTION
+        ================================================== -->
+
+        <section
+            class="about-section"
+            id="about"
+        >
+
+
+
+            <!-- ABOUT CONTENT -->
+
+            <div class="about-content">
+
+
+                <span class="section-label">
+                    THE PROJECT
+                </span>
+
+
+                <h2>
+                    More than a movie search engine.
+                </h2>
+
+
+                <p>
+
+                    CineGraph AI demonstrates how Natural Language
+                    Processing and graph databases can transform raw
+                    movie data into a connected knowledge system.
+
+                </p>
+
+
+                <p>
+
+                    Instead of searching isolated database records,
+                    the system understands relationships between
+                    movies, actors, directors, genres, languages,
+                    companies, countries and semantic entities
+                    extracted from movie descriptions.
+
+                </p>
+
+
+                <a
+                    href="{{ url_for('ask') }}"
+                    class="primary-button"
+                >
+
+                    Explore the Knowledge Graph
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- SYSTEM ARCHITECTURE -->
+
+            <div class="architecture-card">
+
+
+
+                <div class="architecture-item">
+
+                    <span>
+                        01
+                    </span>
+
+                    User Question
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    ↓
+                </div>
+
+
+
+                <div class="architecture-item">
+
+                    <span>
+                        02
+                    </span>
+
+                    NLP Intent Parser
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    ↓
+                </div>
+
+
+
+                <div class="architecture-item">
+
+                    <span>
+                        03
+                    </span>
+
+                    Cypher Query Generator
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    ↓
+                </div>
+
+
+
+                <div class="architecture-item highlighted">
+
+                    <span>
+                        04
+                    </span>
+
+                    Neo4j Knowledge Graph
+
+                </div>
+
+
+                <div class="architecture-arrow">
+                    ↓
+                </div>
+
+
+
+                <div class="architecture-item">
+
+                    <span>
+                        05
+                    </span>
+
+                    Natural Language Answer
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                CG
+            </span>
+
+            <span>
+                CineGraph
+            </span>
+
+            <span class="logo-ai">
+                AI
+            </span>
+
+        </a>
+
+
+        <p>
+            Knowledge-Based Movie QA System · NLP + Graph Databases
+        </p>
+
+
+    </footer>
+
+
+</body>
+
+</html>

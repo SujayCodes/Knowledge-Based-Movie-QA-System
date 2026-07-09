@@ -1,0 +1,10 @@
+Flask
+pandas
+pymongo
+tqdm
+neo4j
+spacy
+spacy-transformers
+stanza
+psutil
+torch
