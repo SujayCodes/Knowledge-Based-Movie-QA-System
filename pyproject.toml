@@ -3,5 +3,17 @@ name = "knowledge-based-movie-qa-system"
 version = "1.0.0"
 requires-python = "==3.12.*"
 
+dependencies = [
+    "Flask",
+    "pandas",
+    "pymongo",
+    "tqdm",
+    "neo4j",
+    "spacy",
+    "spacy-transformers",
+    "python-dotenv",
+    "certifi",
+]
+
 [project.scripts]
 app = "application:application"
