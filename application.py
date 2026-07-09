@@ -1,3 +1,38 @@
+import os
+import ssl
+import certifi
+
+from dotenv import load_dotenv
+
+
+# ============================================================
+# FIX WINDOWS SSL CERTIFICATE STORE ERROR
+# ============================================================
+
+_original_load_default_certs = ssl.SSLContext.load_default_certs
+
+
+def load_certifi_certs(self, purpose=ssl.Purpose.SERVER_AUTH):
+
+    if purpose == ssl.Purpose.SERVER_AUTH:
+        self.load_verify_locations(
+            cafile=certifi.where()
+        )
+    else:
+        _original_load_default_certs(
+            self,
+            purpose
+        )
+
+
+ssl.SSLContext.load_default_certs = load_certifi_certs
+
+
+# ============================================================
+# LOAD ENVIRONMENT VARIABLES
+# ============================================================
+
+load_dotenv()
 
 
 from flask import Flask, request, render_template
@@ -21,12 +56,26 @@ app=application
 # 2. CONNECT TO NEO4J
 # ============================================================
 
+
+# This is for local host when running the application on your own machine. When Neo4j desktop has your database
+# generator = QueryGenerator(
+#     uri="neo4j://127.0.0.1:7687",
+#     user="neo4j",
+#     password="bigdata612",
+#     database="neo4j"
+# )
+
+
+
+# Now our database is hosted on Neo4j Aura
 generator = QueryGenerator(
-    uri="neo4j://127.0.0.1:7687",
-    user="neo4j",
-    password="bigdata612",
-    database="neo4j"
+    uri=os.getenv("NEO4J_URI"),
+    user=os.getenv("NEO4J_USER"),
+    password=os.getenv("NEO4J_PASSWORD"),
+    database=os.getenv("NEO4J_DATABASE", "neo4j")
 )
+
+
 
 
 # ============================================================

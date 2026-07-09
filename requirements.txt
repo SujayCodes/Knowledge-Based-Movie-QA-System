@@ -8,3 +8,5 @@ spacy-transformers
 stanza
 psutil
 torch
+python-dotenv
+certifi
